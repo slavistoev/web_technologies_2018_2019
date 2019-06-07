@@ -5,15 +5,9 @@
  */
 class IndexController
 {
-    private $model;
-
-    function __construct($model)
+    public function home()
     {
-        $this->model = $model;
-    }
-
-    public function sayWelcome()
-    {
-        return $this->model->welcomeMessage();
+        include "views/home_view.php";
+        //print ("random message");
     }
 }

@@ -8,15 +8,15 @@ if ($url == '/') {
     // Initiate the home controller
     // and render the home view
 
-    require_once __DIR__ . '/Models/index_model.php';
+    //require_once __DIR__ . '/Models/index_model.php';
     require_once __DIR__ . '/Controllers/index_controller.php';
-    require_once __DIR__ . '/Views/index_view.php';
+    //require_once __DIR__ . '/Views/home_view.php';
 
-    $indexModel = new IndexModel();
-    $indexController = new IndexController($indexModel);
-    $indexView = new IndexView($indexController, $indexModel);
+    //$indexModel = new IndexModel();
+    $indexController = new IndexController();
+    //$indexView = new IndexView($indexController, $indexModel);
 
-    print $indexView->index();
+    $indexController->home();
 } else {
 
 
