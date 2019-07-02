@@ -7,9 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pixel.com</title>
 
-    <link rel="stylesheet" type="text/css" href="../../../public/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../../../public/css/style.css"> -->
     <style>
-        <?php include 'style.css'; ?>
+        /* <?php include 'style.css'; ?> */
+        <?php 
+           $path = $_SERVER['DOCUMENT_ROOT'];
+           $path .= "/web_technologies_2018_2019\public\css/style.css";
+           include($path);
+        ?>
     </style>
 </head>
 
