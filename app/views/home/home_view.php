@@ -42,7 +42,7 @@
                     echo '<a href="' . $r['link'] . '" class="cell"><img src="' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a>';
                 }
                 else if ($r['empty'] == 1){
-                    echo '<a href="#" class="cell">' . $r['id']. '</a>';
+                    echo '<a href="#" class="cell">' . $r['id'] . '</a>';
                 }
             }
             ?>
