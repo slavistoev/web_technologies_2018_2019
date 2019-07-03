@@ -24,7 +24,7 @@
         <div class="container">
             <?php 
             try {
-                $dir = dirname(dirname(dirname(__FILE__)));
+                $dir = dirname(dirname(__FILE__));
                 include_once $dir . '\models\database.php';
                 $vars = $dir . '\include\vars.php';
             
