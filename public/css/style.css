@@ -17,7 +17,7 @@ h1 {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   }
 
-  .cell {
+  .cell, .cell-empty {
     font-size: 10px;
     text-align: center;
     text-decoration: none;
@@ -26,11 +26,11 @@ h1 {
     border: 1px solid black;
   }
 
-  .cell img {
+  .cell img, .cell-empty img {
     width: 100%;
     height: auto;
   }
 
-  .cell:hover {
+  .cell:hover, .cell-empty:hover {
     background-color: black;
   }
