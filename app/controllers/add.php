@@ -17,7 +17,30 @@ class Add extends Controller {
         }
 
         
-        $id = $_GET['id'];
+        if($_POST) {
+            $link = $_POST['link'];
+            $text = $_POST['text'];
+            $id = $_GET['id'];
+            $empty = 1;
+            
+            $sql = "SELECT * FROM grid WHERE id='$id'";
+            $row = $pdo->query($sql);
+
+            $row->setFetchMode(PDO::FETCH_ASSOC);
+            $r = $row->fetch();
+
+            
+            if ($r['empty'] == 0) {
+                echo "pixel is taken";
+            }
+            else {
+                
+                $sql = "UPDATE grid SET empty=0, link='$link', text='$text' WHERE id='$id'";
+                $pdo->query($sql);
+            }
+
+            $db->closeConnection($pdo);
+        }
     }
 }
 

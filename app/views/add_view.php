@@ -7,11 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Вземи си пиксел</title>
 
-    
     <style>
         <?php 
            $path = $_SERVER['DOCUMENT_ROOT'];
-           $path .= "/web_technologies_2018_2019/public/css/style.css";
+           $path .= "/web_technologies_2018_2019/public/css/reg_style.css";
            include($path);
         ?>
     </style>
@@ -19,10 +18,16 @@
 
 <body>
     <article>
-        <header><h1>Pixel.com</h1></header>
-        <div class="container">
-            
-        </div>
+        <form method="POST" action="./add?id=<?php echo $_GET['id']; ?>">
+            <legend>Добави ново поле:</legend>
+            <fieldset>
+                <input type="text" id="link" name="link" placeholder="Адрес на страницата">
+                <input type="text" id="text"  name="text" placeholder="Допълнителен текст">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                
+                <input type="submit" name="submit" value="Добави">
+            </fieldset>
+        </form>
     </article>
 </body>
 

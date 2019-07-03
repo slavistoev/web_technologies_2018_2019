@@ -20,11 +20,11 @@
     <form method="POST" action="./register">
         <legend>Регистрация</legend>
         <fieldset>
-        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Потребителско име">
-        <input type="email" id="email" class="fadeIn second" name="email" placeholder="Имейл адрес">
-        <input type="password" id="password" class="fadeIn third" name="password" placeholder="Парола">
-        <input type="password" id="password-again" class="fadeIn third" name="password-again" placeholder="Повтори Парола">
-        <input type="submit" class="fadeIn fourth" name="submit" value="Регистрация">
+        <input type="text" id="username" name="username" placeholder="Потребителско име">
+        <input type="email" id="email" name="email" placeholder="Имейл адрес">
+        <input type="password" id="password" name="password" placeholder="Парола">
+        <input type="password" id="password-again"  name="password-again" placeholder="Повтори Парола">
+        <input type="submit" name="submit" value="Регистрация">
         </fieldset>
     </form>
 </body>
