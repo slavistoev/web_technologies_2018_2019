@@ -1,12 +1,17 @@
 h1 {
   text-align: center;
-  font-size: 200%;
+  font-size: 5vw;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
 }
 
 .container {
-    height: 600px;
-    margin-left: 300px;
-    margin-right: 300px;
+    align-content: center;
+    height: 60%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -15,8 +20,15 @@ h1 {
   .cell {
     font-size: 10px;
     text-align: center;
-    padding: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 25%;
     border: 1px solid black;
+  }
+
+  .cell img {
+    width: 100%;
+    height: auto;
   }
 
   .cell:hover {

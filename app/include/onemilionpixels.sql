@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 10:52 AM
+-- Generation Time: Jul 03, 2019 at 11:53 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -33,39 +33,40 @@ CREATE TABLE `grid` (
   `empty` tinyint(1) NOT NULL DEFAULT '1',
   `img` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
-  `owner` varchar(255) DEFAULT NULL
+  `owner` varchar(255) DEFAULT NULL,
+  `text` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `grid`
 --
 
-INSERT INTO `grid` (`id`, `empty`, `img`, `link`, `owner`) VALUES
-(1, 1, NULL, NULL, NULL),
-(2, 1, NULL, NULL, NULL),
-(3, 1, NULL, NULL, NULL),
-(4, 1, NULL, NULL, NULL),
-(5, 1, NULL, NULL, NULL),
-(6, 1, NULL, NULL, NULL),
-(7, 1, NULL, NULL, NULL),
-(8, 1, NULL, NULL, NULL),
-(9, 1, NULL, NULL, NULL),
-(10, 1, NULL, NULL, NULL),
-(11, 1, NULL, NULL, NULL),
-(12, 1, NULL, NULL, NULL),
-(13, 1, NULL, NULL, NULL),
-(14, 1, NULL, NULL, NULL),
-(15, 1, NULL, NULL, NULL),
-(16, 1, NULL, NULL, NULL),
-(17, 1, NULL, NULL, NULL),
-(18, 1, NULL, NULL, NULL),
-(19, 1, NULL, NULL, NULL),
-(20, 1, NULL, NULL, NULL),
-(21, 1, NULL, NULL, NULL),
-(22, 1, NULL, NULL, NULL),
-(23, 1, NULL, NULL, NULL),
-(24, 1, NULL, NULL, NULL),
-(25, 1, NULL, NULL, NULL);
+INSERT INTO `grid` (`id`, `empty`, `img`, `link`, `owner`, `text`) VALUES
+(1, 0, 'https://trainingcamp.ittalents.bg/assets/images/logo-white.png', 'https://www.w3schools.com/html/html_responsive.asp', NULL, 'Hello world'),
+(2, 1, NULL, NULL, NULL, ''),
+(3, 1, NULL, NULL, NULL, ''),
+(4, 1, NULL, NULL, NULL, ''),
+(5, 1, NULL, NULL, NULL, ''),
+(6, 1, NULL, NULL, NULL, ''),
+(7, 1, NULL, NULL, NULL, ''),
+(8, 1, NULL, NULL, NULL, ''),
+(9, 1, NULL, NULL, NULL, ''),
+(10, 1, NULL, NULL, NULL, ''),
+(11, 1, NULL, NULL, NULL, ''),
+(12, 1, NULL, NULL, NULL, ''),
+(13, 1, NULL, NULL, NULL, ''),
+(14, 1, NULL, NULL, NULL, ''),
+(15, 1, NULL, NULL, NULL, ''),
+(16, 1, NULL, NULL, NULL, ''),
+(17, 1, NULL, NULL, NULL, ''),
+(18, 1, NULL, NULL, NULL, ''),
+(19, 1, NULL, NULL, NULL, ''),
+(20, 1, NULL, NULL, NULL, ''),
+(21, 1, NULL, NULL, NULL, ''),
+(22, 1, NULL, NULL, NULL, ''),
+(23, 1, NULL, NULL, NULL, ''),
+(24, 1, NULL, NULL, NULL, ''),
+(25, 1, NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
