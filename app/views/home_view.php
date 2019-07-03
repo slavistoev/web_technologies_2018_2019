@@ -53,7 +53,7 @@
 
 <script language="javascript" type="text/javascript">
     function reply_click(clicked_id) {
-        window.location.href = "./getGridElement?id=" + clicked_id; 
+        window.location.href = "./add?id=" + clicked_id; 
     };
 </script>
 
