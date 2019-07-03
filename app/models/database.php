@@ -31,7 +31,7 @@ class Database {
         
     }
 
-    private function closeConnection(&$conn) {
+    public function closeConnection(&$conn) {
         $conn=null;
     }
 }
