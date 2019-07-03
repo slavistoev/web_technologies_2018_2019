@@ -37,11 +37,15 @@
             $sql = 'SELECT * FROM Grid';
             $q = $pdo->query($sql);
             $q->setFetchMode(PDO::FETCH_ASSOC);
-            while ($r = $q->fetch()) :
+            while ($r = $q->fetch()) {
+                if ($r['empty'] == 0) {
+                    echo '<a href="' . $r['link'] . '" class="cell"><img src="' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a>';
+                }
+                else if ($r['empty'] == 1){
+                    echo '<a href="#" class="cell">' . $r['id'] . '</a>';
+                }
+            }
             ?>
-                <div class="cell"> <?php echo $r['id'] ?> </div>
-            
-            <?php endwhile; ?>
     </table>
     </article>
 </body>
