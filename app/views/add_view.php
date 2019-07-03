@@ -18,12 +18,12 @@
 
 <body>
     <article>
-        <form method="POST" action="./add?id=<?php echo $_GET['id']; ?>">
+        <form method="POST" action="./add?id=<?php echo $_GET['id']; ?>" enctype="multipart/form-data">
             <legend>Добави ново поле:</legend>
             <fieldset>
                 <input type="text" id="link" name="link" placeholder="Адрес на страницата">
                 <input type="text" id="text"  name="text" placeholder="Допълнителен текст">
-                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="file" name="img" id="img">
                 
                 <input type="submit" name="submit" value="Добави">
             </fieldset>

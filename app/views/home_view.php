@@ -22,6 +22,17 @@
 <body>
     <article>
         <header><h1>Pixel.com</h1></header>
+        <?php
+        if ($_SESSION) {
+            if($_SESSION["username"]) {
+               echo "<div> Welcome User " . $_SESSION["username"] . "</div>";
+            } else {
+                echo "<div>error username</div>";
+            }
+        } else {
+            echo "<div>No user is currently logged.</div>";
+        }
+        ?>
         <div class="container">
             <?php 
             try {
@@ -40,7 +51,7 @@
             $q->setFetchMode(PDO::FETCH_ASSOC);
             while ($r = $q->fetch()) {
                 if ($r['empty'] == 0) {
-                    echo '<a href="' . $r['link'] . '" class="cell"><img src="' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a>';
+                    echo '<a href="' . $r['link'] . '" class="cell"><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a>';
                 }
                 else if ($r['empty'] == 1){
                     echo '<a href="#" class="cell-empty" id="' . $r['id'] . '" onClick="reply_click(this.id)">' . $r['id'] . '</a>';

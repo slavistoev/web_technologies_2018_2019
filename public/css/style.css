@@ -3,7 +3,11 @@ h1 {
   font-size: 5vw;
 }
 
-@media screen and (max-width: 800px) {
+div {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
   .container {
     width: 100%;
   }

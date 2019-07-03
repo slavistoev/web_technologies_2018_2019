@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2019 at 03:49 PM
+-- Generation Time: Jul 03, 2019 at 11:36 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -34,7 +34,7 @@ CREATE TABLE `grid` (
   `img` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
   `owner` varchar(255) DEFAULT NULL,
-  `text` varchar(255) NOT NULL
+  `text` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -42,14 +42,14 @@ CREATE TABLE `grid` (
 --
 
 INSERT INTO `grid` (`id`, `empty`, `img`, `link`, `owner`, `text`) VALUES
-(1, 0, 'https://trainingcamp.ittalents.bg/assets/images/logo-white.png', 'https://www.w3schools.com/html/html_responsive.asp', NULL, 'Hello world'),
-(2, 1, NULL, NULL, NULL, ''),
-(3, 1, NULL, NULL, NULL, ''),
+(1, 0, 'fmi.png', 'https://www.fmi.uni-sofia.bg/bg', NULL, 'FMI is The BEST'),
+(2, 1, NULL, NULL, NULL, NULL),
+(3, 1, NULL, NULL, NULL, NULL),
 (4, 1, NULL, NULL, NULL, ''),
 (5, 1, NULL, NULL, NULL, ''),
 (6, 1, NULL, NULL, NULL, ''),
 (7, 1, NULL, NULL, NULL, ''),
-(8, 1, NULL, NULL, NULL, ''),
+(8, 1, NULL, '', NULL, ''),
 (9, 1, NULL, NULL, NULL, ''),
 (10, 1, NULL, NULL, NULL, ''),
 (11, 1, NULL, NULL, NULL, ''),
@@ -86,7 +86,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `pass`) VALUES
-(1, 'Admin', 'Admin@admin.com', '4e7afebcfbae000b22c7c85e5560f89a2a0280b4');
+(1, 'Admin', 'admin@abv.bg', '$2y$10$hPkaZ.lU9opIoIMpnLARdegAA8/iOu5dDiHKtmW6V3j1pptMr0Jji');
 
 --
 -- Indexes for dumped tables
@@ -120,7 +120,7 @@ ALTER TABLE `grid`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

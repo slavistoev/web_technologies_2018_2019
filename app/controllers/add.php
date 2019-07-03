@@ -3,6 +3,7 @@
 class Add extends Controller {
     
     public function index() {
+        session_start();
         $this->view("add_view");
 
         try {
@@ -18,10 +19,18 @@ class Add extends Controller {
 
         
         if($_POST) {
+            //directory for photos
+            $target = "images/";
+            $target = $target . basename($_FILES['img']['name']);
+
+            echo $target;
+
             $link = $_POST['link'];
             $text = $_POST['text'];
             $id = $_GET['id'];
+            $user = $_SESSION['username'];
             $empty = 1;
+            $pic = ($_FILES['img']['name']);
             
             $sql = "SELECT * FROM grid WHERE id='$id'";
             $row = $pdo->query($sql);
@@ -35,8 +44,14 @@ class Add extends Controller {
             }
             else {
                 
-                $sql = "UPDATE grid SET empty=0, link='$link', text='$text' WHERE id='$id'";
+                $sql = "UPDATE grid SET empty=0, link='$link', text='$text', owner='$user', img='$pic' WHERE id='$id'";
                 $pdo->query($sql);
+
+                if(move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
+                    echo "The file has been uploaded.";
+                } else {
+                    echo "The file has not been uploaded.";
+                }
             }
 
             $db->closeConnection($pdo);
