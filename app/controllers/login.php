@@ -1,13 +1,11 @@
 <?php
 
-$dir = dirname(dirname(__FILE__));
-include_once $dir . '\models\User.php';
-
 session_start();
 
 class Login extends Controller {
     public function index() {
         $this->view('login_view');
+        $this->model('User');
 
         if($_POST) {
             $username = $_POST['username'];

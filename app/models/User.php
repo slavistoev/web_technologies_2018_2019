@@ -1,7 +1,5 @@
 <?php
 
-require_once "database.php";
-
 class User {
     private $username;
     private $password;
@@ -16,9 +14,7 @@ class User {
 
         try {
             $this->db = new Database;
-            $dir = dirname(dirname(__FILE__));
-            $vars = $dir . '\include\vars.php';
-            $this->pdo = $this->db->connect($vars);
+            $this->pdo = $this->db->connect();
         } catch (Exception $e) {
             echo $e->getTraceAsString();
         }

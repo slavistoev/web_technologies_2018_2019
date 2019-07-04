@@ -1,11 +1,9 @@
 <?php
 
-$dir = dirname(dirname(__FILE__));
-include_once $dir . '\models\User.php';
-
 class Register extends Controller {
     public function index() {
         $this->view('register_view');
+        $this->model('User');
 
         if($_POST) {
             $username = $_POST['username'];

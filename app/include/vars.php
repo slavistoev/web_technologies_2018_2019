@@ -1,7 +1,9 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "onemilionpixels";
 
+class Vars {
+    public $host = "localhost";
+    public $user = "root";
+    public $password = "";
+    public $database = "onemilionpixels";
+}
 ?>

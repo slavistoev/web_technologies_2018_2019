@@ -6,18 +6,12 @@ class Database {
     private $password;
     private $database;
 
-    function connect($filename) {
-
-        if (is_file($filename)) {
-            include $filename;
-        } else {
-            throw new Exception("Error!");
-        }
-
-        $this->host = $host;
-        $this->user = $user;
-        $this->password = $password;
-        $this->database = $database;
+    function connect() {     
+        $vars = new Vars;
+        $this->host = $vars->host;
+        $this->user = $vars->user;
+        $this->password = $vars->password;
+        $this->database = $vars->database;
 
         try {
             $conn = new PDO("mysql:host=$this->host;dbname=$this->database", $this->user, $this->password);
