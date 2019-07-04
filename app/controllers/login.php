@@ -21,10 +21,8 @@ class Login extends Controller {
                 
                 header("Location: ./home_view");
             } else {
-                echo "error login";
+                echo $result['error'];
             }
         }
     }
-
-    
 }
