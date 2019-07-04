@@ -39,13 +39,9 @@
         <section>
         <div class="container">
             <?php 
-            try {
-                $dir = dirname(dirname(__FILE__));
-                include_once $dir . '\models\database.php';
-                $vars = $dir . '\include\vars.php';
-            
+            try {          
                 $db = new Database;
-                $pdo = $db->connect($vars);
+                $pdo = $db->connect();
             } catch (Exception $e) {
                 echo $e->getTraceAsString();
             }

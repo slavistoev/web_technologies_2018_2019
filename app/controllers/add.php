@@ -15,12 +15,8 @@ class Add extends Controller {
             $this->view("add_view");
 
             try {
-                $dir = dirname(dirname(__FILE__));
-                include_once $dir . '\models\database.php';
-                $vars = $dir . '\include\vars.php';
-            
                 $db = new Database;
-                $pdo = $db->connect($vars);
+                $pdo = $db->connect();
             } catch (Exception $e) {
                 echo $e->getTraceAsString();
             }
