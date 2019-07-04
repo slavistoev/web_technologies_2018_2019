@@ -10,7 +10,7 @@ class Logout extends Controller {
     
             $this->view('home_view');
         } else {
-            echo "Грешка...";
+            echo "Error logging out!";
         }
     }
 }

@@ -25,11 +25,19 @@ class User {
     }
 
     public function insertUser() {
+        $sql = "SELECT * FROM users WHERE username = '$this->username' OR email = '$this->email'";
+        $query = $this->pdo->query($sql);
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+        if ($user) {
+            return array("success" => false, "error" => "User name or email is taken.");
+        }
+        
         $passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
         $sql = "INSERT into users (username, email, pass) VALUES ('$this->username' , '$this->email', '$passwordHash')";
         $this->pdo->query($sql);
 
         $this->db->closeConnection($this->pdo);
+        return array("success" => true);
     }
 
     public function loginUser() {
@@ -45,10 +53,10 @@ class User {
                 $this->email = $user['email'];
                 return array("success" => true);
             } else {
-                return array("success" => false, "error" => "Грешна парола.");
+                return array("success" => false, "error" => "Wrong password.");
             }
         } else {
-            return array("success" => false, "error" => "Грешно потребителско име.");
+            return array("success" => false, "error" => "Wrong user name.");
         }
 
     }
@@ -58,6 +66,6 @@ class User {
     }
 
     public function isValid() {
-        
+
     }
 }

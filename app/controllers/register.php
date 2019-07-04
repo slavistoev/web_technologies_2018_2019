@@ -27,8 +27,12 @@ class Register extends Controller {
             }
             else {
                 $user = new User($username, $password, $email);
-                $user->insertUser();
-                header("Location: ./login");
+                $result = $user->insertUser();
+                if ($result['success']) {
+                    header("Location: ./login");
+                } else {
+                    echo $result['error'];
+                }
             }
         }
 
