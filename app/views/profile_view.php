@@ -18,14 +18,13 @@
 
 <body>
     <nav>
-        <a href="#" ><img src="./images/pixel-logo.png" class="logo" alt="logo"></a>
+        <a href="./home" ><img src="./images/pixel-logo.png" class="logo" alt="logo"></a>
         
         <?php
         if ($_SESSION) {
             if($_SESSION["username"]) {
                echo '<a href="./logout" class="button3">Logout</a>
                    <a href="./profile" class="button3">Profile</a>';
-               echo "<p> Welcome, " . $_SESSION["username"] . "!</p>";
             } else {
                 echo "<p>Error username</p>";
             }

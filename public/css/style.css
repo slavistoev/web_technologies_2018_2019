@@ -6,8 +6,18 @@ body {
   background-size: cover;
 }
 
+
+.nav {
+
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 70%;
+  float: right;
+}
+
 .logo {
   max-width: 50%;
+  float:left;
 }
 
 @media screen and (max-width: 600px) {
@@ -21,6 +31,11 @@ body {
 
 p {
   color: white;
+}
+
+section {
+  position: absolute;
+  margin-top: 15%;
 }
 
 .container {
@@ -58,6 +73,13 @@ p {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2); 
+  }
+
+  .greeting {
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    margin-top: 10%;
+    text-align: right;
   }
 
 /* Buttons style */
