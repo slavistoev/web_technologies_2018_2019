@@ -28,6 +28,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `grid`
 --
 
+CREATE DATABASE onemilionpixels;
+
 CREATE TABLE `grid` (
   `id` int(11) NOT NULL,
   `empty` tinyint(1) NOT NULL DEFAULT '1',
