@@ -4,13 +4,21 @@ require_once 'core/app.php';
 require_once 'core/controller.php';
 require_once "models/database.php";
 require_once "include/vars.php";
-// require_once "include/onemilionpixels.sql";
 
-// try {
-//     $db =  new PDO('localhost', 'root', '');
+try {
+    $db =  new PDO('mysql:host=localhost;', 'root', '');
+    $sql = "CREATE DATABASE onemilionpixels";
+    $qr = $db->exec($sql);
+    $db = null;
 
-//     $sql = file_get_contents('onemilionpixels.sql');
-//     $qr = $db->exec($sql);
-// } catch(PDOException $e) {
-//     echo "Connection failed: " . $e->getMessage();
-// }
+    $dir = dirname(dirname(__FILE__));
+    $file = $dir . '\app\include\onemilionpixels.sql';
+
+    $db = new Database;
+    $sql = file_get_contents($file);
+    $pdo = $db->connect();
+    $qr = $pdo->exec($sql);
+    $db->closeConnection($pdo);
+} catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
