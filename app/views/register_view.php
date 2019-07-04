@@ -17,16 +17,22 @@
 </head>
 
 <body>
-    <form method="POST" action="./register">
-        <legend>Регистрация</legend>
-        <fieldset>
-        <input type="text" id="username" name="username" placeholder="Потребителско име">
-        <input type="email" id="email" name="email" placeholder="Имейл адрес">
-        <input type="password" id="password" name="password" placeholder="Парола">
-        <input type="password" id="password-again"  name="password-again" placeholder="Повтори Парола">
-        <input type="submit" name="submit" value="Регистрация">
-        </fieldset>
-    </form>
+    <article>
+        <div class="register-page">
+            <div class="form">
+                <form method="POST" action="./register">
+                    <legend>Welcome</legend>
+                    <input type="text" id="username" name="username" placeholder="Username">
+                    <input type="email" id="email" name="email" placeholder="Email">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <input type="password" id="password-again"  name="password-again" placeholder="Repeat Password">
+                    <input type="submit" name="submit" class="button" value="Signup" >
+                </form>
+                <p class="message">Already registered? <a href="./login">Sign In</a></p>
+                <p class="message"><a href="./home">Return</a></p>
+            </div>
+        </div>
+    </article>
 </body>
 
 </html>

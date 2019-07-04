@@ -18,16 +18,19 @@
 
 <body>
     <article>
-        <form method="POST" action="./add?id=<?php echo $_GET['id']; ?>" enctype="multipart/form-data">
-            <legend>Добави ново поле:</legend>
-            <fieldset>
-                <input type="text" id="link" name="link" placeholder="Адрес на страницата">
-                <input type="text" id="text"  name="text" placeholder="Допълнителен текст">
-                <input type="file" name="img" id="img">
+        <div class="add-page">
+            <div class="form">
+                <form method="POST" action="./add?id=<?php echo $_GET['id']; ?>" enctype="multipart/form-data">
+                    <legend>Information:</legend>
+                    <input type="text" id="link" name="link" placeholder="URL">
+                    <input type="text" id="text"  name="text" placeholder="Additional text">
+                    <input type="file" name="img" id="img" class="inputfile">
                 
-                <input type="submit" name="submit" value="Добави">
-            </fieldset>
-        </form>
+                    <input type="submit" name="submit" value="Add" class="button">
+                </form>
+                <p class="message"><a href="./home">Return</a></p>
+            </div>
+        </div>
     </article>
 </body>
 

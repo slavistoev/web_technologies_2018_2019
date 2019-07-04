@@ -17,14 +17,20 @@
 </head>
 
 <body>
-    <form method="POST" action="./login">
-        <legend>Логин</legend>
-        <fieldset>
-        <input type="text" id="username" name="username" placeholder="Потребителско име">
-        <input type="password" id="password" name="password" placeholder="Парола">
-        <input type="submit" name="submit" value="Вход">
-        </fieldset>
-    </form>
+    <article>
+        <div class="login-page">
+            <div class="form">
+                <form method="POST" action="./login">
+                    <legend>Member Login</legend>
+                    <input type="text" id="username" name="username" placeholder="Username">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <input type="submit" name="submit" class="button" value="Login">
+                </form>
+                <p class="message">Not registered? <a href="./register">Create an account</a></p>
+                <p class="message"><a href="./home">Return</a></p>
+            </div>
+        </div>
+    </article>
 </body>
 
 </html>

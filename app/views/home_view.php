@@ -8,9 +8,7 @@
     <title>Pixel.com</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- <link rel="stylesheet" type="text/css" href="../../../public/css/style.css"> -->
     <style>
-        /* <?php include 'style.css'; ?> */
         <?php 
            $path = $_SERVER['DOCUMENT_ROOT'];
            $path .= "/web_technologies_2018_2019/public/css/style.css";
@@ -20,19 +18,25 @@
 </head>
 
 <body>
-    <article>
-        <header><h1>Pixel.com</h1></header>
+        <nav>
+        <a href="#" ><img src="./images/pixel-logo.png" class="logo" alt="logo"></a>
+        
         <?php
         if ($_SESSION) {
             if($_SESSION["username"]) {
-               echo "<div> Welcome User " . $_SESSION["username"] . "</div>";
+               echo '<a href="./logout" class="button3">Logout</a>
+                   <a href="./profile" class="button3">Profile</a>';
+               echo "<p> Welcome, " . $_SESSION["username"] . "!</p>";
             } else {
-                echo "<div>error username</div>";
+                echo "<p>Error username</p>";
             }
         } else {
-            echo "<div>No user is currently logged.</div>";
+            echo '<a href="./login" class="button3">SignIn</a>
+                <a href="./register" class="button3">SignUp</a>';
         }
         ?>
+        </nav>
+        <section>
         <div class="container">
             <?php 
             try {
@@ -51,15 +55,15 @@
             $q->setFetchMode(PDO::FETCH_ASSOC);
             while ($r = $q->fetch()) {
                 if ($r['empty'] == 0) {
-                    echo '<a href="' . $r['link'] . '" class="cell"><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a>';
+                    echo '<a href="' . $r['link'] . '" class="cell" ><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a>';
                 }
                 else if ($r['empty'] == 1){
-                    echo '<a href="#" class="cell-empty" id="' . $r['id'] . '" onClick="reply_click(this.id)">' . $r['id'] . '</a>';
+                    echo '<a href="#" class="cell-empty" id="' . $r['id'] . '" onClick="reply_click(this.id)"> <img src="./images/Free-cell.png" class="free" alt="Free"></a>';
                 }
             }
             ?>
-    </table>
-    </article>
+    </div>
+    </section>
 </body>
 
 <script language="javascript" type="text/javascript">

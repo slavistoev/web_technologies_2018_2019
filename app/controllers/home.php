@@ -8,7 +8,4 @@ class Home extends Controller {
 
     }
 
-    public function createGridElement($gridID, $link) {
-        
-    }
 }

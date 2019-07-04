@@ -18,13 +18,12 @@ class Login extends Controller {
             $result = $user->loginUser();
             if($result['success']){
                 $_SESSION["username"] = $user->getUsername();
+                
+                header("Location: ./home_view");
             } else {
                 echo "error login";
             }
-        } else {
-            echo "error POST";
         }
-
     }
 
     

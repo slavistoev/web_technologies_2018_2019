@@ -8,7 +8,7 @@ class Logout extends Controller {
             session_unset();
             session_destroy();
     
-            echo "Logged out";
+            $this->view('home_view');
         } else {
             echo "Грешка...";
         }

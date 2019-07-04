@@ -1,34 +1,104 @@
-legend, #submit {
-    border: none;
-    color: white;
-    background-color: rgb(151, 191, 13);
-    text-align: center;
-}
-
-fieldset {
-    border-top: 0;
-    background-color: rgb(245, 245, 240);
-}
-
-input {
-    height: 20px;
-    display: block;
-    margin: 10px;
-    width: 246px;
-}
-
-form {
+.login-page {
+    width: 400px;
+    padding: 5% 0 0;
     margin: auto;
-    width: 300px;
 }
 
-#submit {
-    width: 160px;
-    height: 25px;
-    width: 248px;
+.register-page {
+    width: 400px;
+    padding: 2% 0 0;
+    margin: auto;
 }
+
+.add-page {
+    width: 400px;
+    padding: 4% 0 0;
+    margin: auto;
+}
+
 
 legend {
-    height: 30px;
-    font-size: 21px;
+    font-size: 50px;
+    margin-bottom: 2%;
 }
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 400px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 15px 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+  .form .button {
+    outline: 0;
+    background: #4095c6;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+  .form .button:hover,.form .button:active,.form .button:focus {
+    background: #72c0ee;
+  }
+
+  .form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 18px;
+  }
+
+  .form .message a {
+    color: #3988b6;
+  }
+
+  .form .register-form {
+    display: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .container:before, .container:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  .container .info {
+    margin: 50px auto;
+    text-align: center;
+  }
+
+
+  body {
+    background: #4095c6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(right, #4095c6, #8cc9ec);
+    background: -moz-linear-gradient(right, #4095c6, #8cc9ec);
+    background: -o-linear-gradient(right, #4095c6, #8cc9ec);
+    background: linear-gradient(to left, #4095c6, #8cc9ec);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
+  }
