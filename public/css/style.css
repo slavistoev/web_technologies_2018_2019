@@ -6,7 +6,6 @@ body {
   background-size: cover;
 }
 
-
 .nav {
 
   position: absolute;
@@ -20,6 +19,11 @@ body {
   float:left;
 }
 
+section {
+  position: absolute;
+  margin-top: 15%;
+  width: 100%;
+}
 @media screen and (max-width: 600px) {
   .container {
     width: 100%;
@@ -31,11 +35,6 @@ body {
 
 p {
   color: white;
-}
-
-section {
-  position: absolute;
-  margin-top: 15%;
 }
 
 .container {
