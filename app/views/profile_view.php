@@ -34,22 +34,71 @@
     <article>
         <div class="tabContainer">
             <div class="buttonContainer">
-                <button onclick="showPanel(0)" class="active" >My profile:</button>
-                <button onclick="showPanel(1)">My pixels:</button>
-                <button onclick="showPanel(2)">Settings:</button>
+                <button onclick="showPanel(0)" class="active" >My profile</button>
+                <button onclick="showPanel(1)">See my pixels</button>
+                <button onclick="showPanel(2)">Settings</button>
             </div>
-            <div class="tabPanel active">
-                Tab 1: Content
+            <div class="tabPanel">
+                <?php
+                    if ($_SESSION) {
+                        $username = $_SESSION["username"];
+                        if(isset($username)){ 
+                            try {
+                                $dir = dirname(dirname(__FILE__));
+                                include_once $dir . '\models\database.php';
+                                $vars = $dir . '\include\vars.php';
+                            
+                                $db = new Database;
+                                $pdo = $db->connect($vars);
+                            } catch (Exception $e) {
+                                echo $e->getTraceAsString();
+                            }
+                
+                            $sql = "SELECT * FROM users WHERE username='$username'";
+                            $q = $pdo->query($sql);
+                            $q->setFetchMode(PDO::FETCH_ASSOC);
+                            if ($r = $q->fetch()) {
+                                if($r['img'] == null || !file_exists('../public/images/profilePics/' . $r['img'])) {
+                                    echo '<img src="../public/images/profilePics/empty.png" class="profilePic"/>';
+                                }
+                                else {
+                                    echo '<img src="../public/images/profilePics/' . $r['img'] . '" class="profilePic"/>';
+                                }
+                                echo '<div class="info"> <div> Username: <span class="italic">' . $r['username'] . '</span></div>';
+                                echo '<div>Email: <span class="italic">' . $r['email']. '</span></div>';
+                                if ($r['first_name'] != null) {
+                                    echo '<div>First Name: <span class="italic">' . $r['first_name']. '</span></div>';
+                                } else {
+                                    echo '<div>First Name: <span class="italic">Unknown</span></div>';
+                                }
+
+                                if ($r['last_name'] != null) {
+                                    echo '<div>Last Name: <span class="italic">' . $r['last_name']. '</span></div>';
+                                } else {
+                                    echo '<div>Last Name: <span class="italic">Unknown</span></div></div>';
+                                }
+                                
+                                
+                            }
+                        }
+                    } 
+                ?>
             </div>  
             <div class="tabPanel">
-                Tab 2: Content
+                <?php
+                    $sql = "SELECT * FROM grid WHERE owner='$username'";
+                    $q = $pdo->query($sql);
+                    $q->setFetchMode(PDO::FETCH_ASSOC);
+                    while ($r = $q->fetch()) {
+                        echo '<div class="whole"><div class="image"> <a href="' . $r['link'] . '" class="cell" target="_blank"><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a></div>';
+                        echo '<div class="text"><a href="#" id="' . $r['id'] . '" onClick="reply_click_to_delete(this.id)">Delete</a></div>';
+                        echo '<div class="text"><a href="#" id="' . $r['id'] . '" onClick="reply_click_to_change(this.id)">Change</a></div></div>';
+                    }
+                ?>
             </div>  
             <div class="tabPanel">
                 Tab 3: Content
             </div>  
-            <div class="tab">
-                Welcome To Your Profile!
-            </div> 
         </div>
     </article>
 </body>
@@ -78,6 +127,14 @@
         tabPanels[panelIndex].style.backgroundColor="#99989869";
 
     }
+
+    function reply_click_to_delete(clicked_id) {
+        window.location.href = "./delete?id=" + clicked_id; 
+    };
+
+    function reply_click_to_change(clicked_id) {
+        window.location.href = "./change?id=" + clicked_id; 
+    };
 </script>
 
 </html>

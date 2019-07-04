@@ -50,7 +50,7 @@
                 echo $e->getTraceAsString();
             }
 
-            $sql = 'SELECT * FROM Grid';
+            $sql = 'SELECT * FROM grid';
             $q = $pdo->query($sql);
             $q->setFetchMode(PDO::FETCH_ASSOC);
             while ($r = $q->fetch()) {

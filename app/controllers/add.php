@@ -32,14 +32,12 @@ class Add extends Controller {
                 //directory for photos
                 $target = "images/";
                 $target = $target . basename($_FILES['img']['name']);
-
-                echo $target;
+                $pic = ($_FILES['img']['name']);
 
                 $link = $_POST['link'];
                 $text = $_POST['text'];
                 $id = $_GET['id'];
                 $empty = 1;
-                $pic = ($_FILES['img']['name']);
 
                 $sql = "SELECT * FROM grid WHERE id='$id'";
                 $row = $pdo->query($sql);
@@ -62,6 +60,8 @@ class Add extends Controller {
                         echo "The file has not been uploaded.";
                     }
                 }
+                
+                header("Location: ./home_view");
 
                 $db->closeConnection($pdo);
             }
