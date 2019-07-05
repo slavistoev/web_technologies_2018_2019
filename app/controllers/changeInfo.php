@@ -4,7 +4,6 @@ session_start();
 
 class ChangeInfo extends Controller {
     public function index() {
-        $this->view('profile_view');
         $this->model('User');
 
         $username = $_SESSION['username'];
@@ -50,6 +49,8 @@ class ChangeInfo extends Controller {
 
             }
         }
+
+        $this->view('profile_view');
         echo '<ul class="errors"> ' . $msg . '</ul>';
     }
 }

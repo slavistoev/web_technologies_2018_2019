@@ -4,7 +4,6 @@ session_start();
 
 class ChangePass extends Controller {
     public function index() {
-        $this->view('profile_view');
         $this->model('User');
 
         $username = $_SESSION['username'];
@@ -31,7 +30,8 @@ class ChangePass extends Controller {
                     $msg = $result['error'];
                 }
             }
-
+            
+            $this->view('profile_view');
             echo '<ul class="errors"> ' . $msg . '</ul>';
         }
     }

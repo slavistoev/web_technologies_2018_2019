@@ -58,7 +58,7 @@ class Change extends Controller {
                 $error = $result['error'];
             }
 
-            echo $error;
+            echo '<ul class="errors"> ' . $error . '</ul>';
         }
     }
 }

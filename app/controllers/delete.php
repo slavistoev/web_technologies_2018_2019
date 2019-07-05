@@ -12,7 +12,6 @@ class Delete extends Controller {
             echo "</script>";
         } else {
             $this->model('Pixel');
-            $this->view("profile_view");
 
             $id = $_GET['id'];
             $pixel = new Pixel($id);
@@ -29,7 +28,8 @@ class Delete extends Controller {
                 $msg = $result['error'];
             }
 
-            echo $msg;
+            $this->view("profile_view");
+            echo '<ul class="errors"> ' . $msg . '</ul>';
         }
     }
 }
