@@ -44,15 +44,15 @@ function checkIfPictureExists($img) {
         include($path);
         if ($_SESSION) {
             if($_SESSION["username"]) {
-               echo '<div class="nav"><a href="./logout" class="button3">Logout</a>
-                   <a href="./profile" class="button3">Profile</a>';
+               echo '<div class="nav"><a href="./profile" class="button3">Profile</a>
+                   <a href="./logout" class="button3">Logout</a>';
                echo '<p class="greeting"> Welcome, ' . $_SESSION["username"] . '! Choose your pixel NOW!</p></div>';
             } else {
                 echo "<p>Error username</p>";
             }
         } else {
-            echo '<a href="./login" class="button3">SignIn</a>
-                <a href="./register" class="button3">SignUp</a>';
+            echo '<div class="nav"><a href="./register" class="button3">SignUp</a>
+                <a href="./login" class="button3">SignIn</a></div>';
         }
         ?>
         </nav>

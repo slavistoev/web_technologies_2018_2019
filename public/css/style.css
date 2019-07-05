@@ -10,7 +10,7 @@ body {
 
   position: absolute;
   margin-top: 2%;
-  margin-left: 70%;
+  margin-left: 80%;
   float: right;
 }
 
@@ -22,7 +22,8 @@ body {
 section {
   position: absolute;
   margin-top: 15%;
-  width: 100%;
+  width: 90%;
+  margin-left: 3%;
 }
 @media screen and (max-width: 600px) {
   .container {
@@ -83,12 +84,12 @@ p {
     font-family:'Roboto',sans-serif;
     font-weight:300;
     margin-top: 10%;
-    text-align: right;
+    margin-right: 10%;
+    float: left;
   }
 
 /* Buttons style */
 a.button3 {
-    float: right;
     display: inline-block;
     padding: 0.3em 1.2em;
     margin: 0 0.3em 0.3em 0;
