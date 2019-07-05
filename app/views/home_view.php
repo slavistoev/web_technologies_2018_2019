@@ -1,3 +1,20 @@
+<?php
+function checkIfPictureExists($img) {
+    $img = $img;
+    $path = dirname(dirname(__DIR__)) . "/public/images/";
+    $fullpath =  $path .  $img;
+
+    if (file_exists($fullpath)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="bg">
 
@@ -47,7 +64,12 @@
                 $result['pixels']->setFetchMode(PDO::FETCH_ASSOC);
                 while ($pixel = $result['pixels']->fetch()) {
                     if ($pixel['empty'] == 0) {
-                        echo '<a href="' . $pixel['link'] . '" class="cell" ><img src="../public/images/' . $pixel['img'] . '" title="' . $pixel['text'] . '"/>'. '</a>';
+                        if (checkIfPictureExists($pixel['img']))  { 
+                            echo '<a href="' . $pixel['link'] . '" class="cell" ><img src="../public/images/' . $pixel['img'] . '" title="' . $pixel['text'] . '"/>'. '</a>';
+                        } else {
+                            echo '<a href="' . $pixel['link'] . '" class="cell-empty" ><img src="../public/images/imagenotfound.png" title="' . $pixel['text'] . '"/>'. '</a>';
+                        }
+                        
                     }
                     else if ($pixel['empty'] == 1){
                         echo '<a href="#" class="cell-empty" id="' . $pixel['id'] . '" onClick="reply_click(this.id)"> <img src="./images/Free-cell.png" class="free" alt="Free"></a>';
