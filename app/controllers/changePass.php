@@ -32,7 +32,7 @@ class ChangePass extends Controller {
                 }
             }
 
-            echo $msg;
+            echo '<ul class="errors"> ' . $msg . '</ul>';
         }
     }
 }

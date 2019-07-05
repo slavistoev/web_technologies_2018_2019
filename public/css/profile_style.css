@@ -57,6 +57,12 @@ a.button3:hover{
 
 /* Profile info styles */
 
+.italic {
+  font-style: italic;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 120%;
+}
+
 
 .tabContainer{
   margin-left: 15%;
@@ -105,6 +111,7 @@ a.button3:hover{
 
 .profilePic {
   float: left;
+  margin-top: 3%;
   margin-left: 10%;
   width: 15%;
   height: auto;
@@ -185,4 +192,15 @@ input[type=text], input[type="password"] {
 
 .button-p:hover, .button-p:active, .button-p:focus {
   background: #72c0ee;
+}
+
+
+.errors{
+  color: #D8000C;
+  background-color: #FFBABA;
+  opacity: 0.5;
+  display: block;
+  text-align: center;
+  border: 1px solid;
+  padding: 15px 10px 15px 50px;
 }

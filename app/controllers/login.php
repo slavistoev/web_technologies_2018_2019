@@ -19,7 +19,7 @@ class Login extends Controller {
                 
                 header("Location: ./home_view");
             } else {
-                echo $result['error'];
+                echo '<ul class="errors"> ' . $result['error']. '</ul>';
             }
         }
     }

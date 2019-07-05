@@ -50,6 +50,6 @@ class ChangeInfo extends Controller {
 
             }
         }
-        echo $msg;
+        echo '<ul class="errors"> ' . $msg . '</ul>';
     }
 }
