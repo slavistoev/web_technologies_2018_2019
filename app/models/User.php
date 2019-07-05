@@ -32,14 +32,12 @@ class User {
         $sql = "INSERT into users (username, email, pass) VALUES ('$this->username' , '$this->email', '$passwordHash')";
         $this->pdo->query($sql);
 
-        $this->db->closeConnection($this->pdo);
         return array("success" => true);
     }
 
     public function loginUser() {
         $sql = "SELECT * FROM users WHERE username = '$this->username'";
         $query = $this->pdo->query($sql);
-        $this->db->closeConnection($this->pdo);
 
         $user = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -61,7 +59,7 @@ class User {
         return $this->username;
     }
 
-    public function isValid() {
-
+    function __destruct() {
+        $this->db->closeConnection($this->pdo);
     }
 }

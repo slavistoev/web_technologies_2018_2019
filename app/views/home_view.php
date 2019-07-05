@@ -22,6 +22,9 @@
         
         <nav>
         <?php
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/web_technologies_2018_2019/app//models/Pixel.php";
+        include($path);
         if ($_SESSION) {
             if($_SESSION["username"]) {
                echo '<div class="nav"><a href="./logout" class="button3">Logout</a>
@@ -39,23 +42,19 @@
         <section>
         <div class="container">
             <?php 
-            try {          
-                $db = new Database;
-                $pdo = $db->connect();
-            } catch (Exception $e) {
-                echo $e->getTraceAsString();
-            }
-
-            $sql = 'SELECT * FROM grid';
-            $q = $pdo->query($sql);
-            $q->setFetchMode(PDO::FETCH_ASSOC);
-            while ($r = $q->fetch()) {
-                if ($r['empty'] == 0) {
-                    echo '<a href="' . $r['link'] . '" class="cell" ><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a>';
+            $result = Pixel::getAllPixels();
+            if ($result['success']) {
+                $result['pixels']->setFetchMode(PDO::FETCH_ASSOC);
+                while ($pixel = $result['pixels']->fetch()) {
+                    if ($pixel['empty'] == 0) {
+                        echo '<a href="' . $pixel['link'] . '" class="cell" ><img src="../public/images/' . $pixel['img'] . '" title="' . $pixel['text'] . '"/>'. '</a>';
+                    }
+                    else if ($pixel['empty'] == 1){
+                        echo '<a href="#" class="cell-empty" id="' . $pixel['id'] . '" onClick="reply_click(this.id)"> <img src="./images/Free-cell.png" class="free" alt="Free"></a>';
+                    }
                 }
-                else if ($r['empty'] == 1){
-                    echo '<a href="#" class="cell-empty" id="' . $r['id'] . '" onClick="reply_click(this.id)"> <img src="./images/Free-cell.png" class="free" alt="Free"></a>';
-                }
+            } else {
+                echo $result['error'];
             }
             ?>
     </div>
