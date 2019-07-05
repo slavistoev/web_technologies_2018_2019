@@ -16,7 +16,7 @@
     </style>
 </head>
 
-<body>
+<body class="reg">
     <article>
         <div class="add-page">
             <div class="form">
