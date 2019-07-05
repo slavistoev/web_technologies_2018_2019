@@ -14,6 +14,8 @@
            include($path);
         ?>
     </style>
+
+    
 </head>
 
 <body>
@@ -73,7 +75,7 @@
                                 }
 
                                 if ($r['last_name'] != null) {
-                                    echo '<div>Last Name: <span class="italic">' . $r['last_name']. '</span></div>';
+                                    echo '<div>Last Name: <span class="italic">' . $r['last_name']. '</span></div></div>';
                                 } else {
                                     echo '<div>Last Name: <span class="italic">Unknown</span></div></div>';
                                 }
@@ -85,21 +87,37 @@
                 ?>
             </div>  
             <div class="tabPanel" id="pixelChange">
+            <table>
                 <?php
                     $sql = "SELECT * FROM grid WHERE owner='$username'";
                     $q = $pdo->query($sql);
                     $q->setFetchMode(PDO::FETCH_ASSOC);
                     
                     while ($r = $q->fetch()) {
-                        echo '<div class="pixel"><div class="image"> <a href="' . $r['link'] . '" class="cell" target="_blank"><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a></div>';
-                        echo '<div class="text"><a href="#" class="button" id="' . $r['id'] . '" onClick="reply_click_to_delete(this.id)">Delete</a></div>';
-                        echo '<div class="text"><a href="#" class="button" id="' . $r['id'] . '" onClick="reply_click_to_change(this.id)">Change</a></div></div>';
+                        echo '<tr><th><div class="pixel"><div class="image"> <a href="' . $r['link'] . '" class="cell" target="_blank"><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a></div></th>';
+                        echo '<th><div class="text"><a href="#" class="button-p" id="' . $r['id'] . '" onClick="reply_click_to_delete(this.id)">Delete</a></div></th>';
+                        echo '<th><div class="text"><a href="#" class="button-p" id="' . $r['id'] . '" onClick="reply_click_to_change(this.id)">Change</a></div></div></th></tr>';
                     }
                 ?>
-            </div>  
+            </table>
+            </div>
             <div class="tabPanel">
-                Tab 3: Content
-            </div>  
+                
+                <form method="POST" action="./changePass">
+                    <legend>Change password:</legend>
+                    <input type="password" id="passwordOld" name="passwordOld" placeholder="Old password">
+                    <input type="password" id="passwordNew" name="passwordNew" placeholder="New password">
+                    <input type="password" id="passwordNewS" name="passwordNewS" placeholder="Repeat new Password">
+                    <input type="submit" name="submit" class="button" value="Submit">
+                </form>
+
+                <form method="POST" action="./changeInfo">
+                    <legend>Change info:</legend>
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name">
+                    <input type="text" id="lastname" name="lastname" placeholder="Last Name">
+                    <input type="submit" name="submit" class="button" value="Submit">
+                </form>
+            </div>
         </div>
     </article>
 </body>

@@ -57,6 +57,43 @@ class User {
 
     }
 
+    public function changePass($oldPass, $newPass) {
+        $sql = "SELECT * FROM users WHERE username = '$this->username'";
+        $query = $this->pdo->query($sql);
+
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+        if($user) {
+            if(password_verify($this->password, $user['pass'])) {
+                
+                $this->password = $newPass;
+                $passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
+
+                $sql = "UPDATE users SET pass='$passwordHash' WHERE username='$this->username'";
+                $result = $this->pdo->query($sql);
+                
+            } else {
+                return array("success" => false, "error" => "Wrong old password.");
+            }
+        } else {
+            return array("success" => false, "error" => "Username not found.");
+        }
+
+    }
+
+    public function changeFirstName($name) {
+        if(preg_match("/^([a-zA-Z' ]+)$/",$name)) {
+            $sql = "UPDATE users SET first_name='$name' WHERE username='$this->username'";
+            $result = $this->pdo->query($sql);
+        }
+    }
+    public function changeLastName($name) {
+        if(preg_match("/^([a-zA-Z' ]+)$/",$name)) {
+            $sql = "UPDATE users SET last_name='$name' WHERE username='$this->username'";
+            $result = $this->pdo->query($sql);
+        }               
+
+    }
+
     public function getUsername() {
         return $this->username;
     }

@@ -93,7 +93,7 @@ legend {
   }
 
 
-  body {
+  body .reg {
     background: #4095c6; /* fallback for old browsers */
     background: -webkit-linear-gradient(right, #4095c6, #8cc9ec);
     background: -moz-linear-gradient(right, #4095c6, #8cc9ec);

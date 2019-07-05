@@ -121,9 +121,14 @@ a.button3:hover{
 
 /* for editing pixels */
 #pixelChange {
-  
   overflow-y: scroll;
 }
+
+table {
+  width: 80%;
+}
+
+
 
 .pixel {
   margin-left: 5%;
@@ -140,7 +145,7 @@ a.button3:hover{
   color: white;
 }
 
-.button {
+.button-p {
     display: block;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -152,5 +157,33 @@ a.button3:hover{
     text-align: center;
     border-radius: 5px;
     color: white;
-    font-weight: bold;
+}
+
+input  {
+  outline: 0;
+  background: #f2f2f2;
+  width: 20%;
+  border: 0;
+  margin: 15px 0 15px;
+  padding: 15px;
+}
+
+.button {
+  font-size: 100%;
+  font-weight: bold;
+  background: #4E9CAF;
+  padding: 1.5%;
+  border-radius: 5px;
+  text-align: center;
+  width: 16%;
+  color: white;
+}
+
+
+.button:hover, .button:active, .button:focus {
+  background: #72c0ee;
+}
+
+.button-p:hover, .button-p:active, .button-p:focus {
+  background: #72c0ee;
 }
