@@ -103,19 +103,21 @@
             </div>
             <div class="tabPanel">
                 
-                <form method="POST" action="./changePass">
+                <form method="POST" action="./changePass" class="changeInfo">
                     <legend>Change password:</legend>
-                    <input type="password" id="passwordOld" name="passwordOld" placeholder="Old password">
+                    <div><input type="password" id="passwordOld" name="passwordOld" placeholder="Old password">
                     <input type="password" id="passwordNew" name="passwordNew" placeholder="New password">
-                    <input type="password" id="passwordNewS" name="passwordNewS" placeholder="Repeat new Password">
-                    <input type="submit" name="submit" class="button" value="Submit">
+                    <input type="password" id="passwordNewS" name="passwordNewS" placeholder="Repeat new Password"></div>
+                    <div><input type="submit" name="submit" class="button" value="Submit"></div>
                 </form>
 
-                <form method="POST" action="./changeInfo">
-                    <legend>Change info:</legend>
-                    <input type="text" id="firstname" name="firstname" placeholder="First Name">
-                    <input type="text" id="lastname" name="lastname" placeholder="Last Name">
-                    <input type="submit" name="submit" class="button" value="Submit">
+                <form method="POST" action="./changeInfo" class="changeInfo" enctype="multipart/form-data">
+                    <legend>Change your info:</legend>
+                    
+                    <div><input type="text" id="firstname" name="firstname" placeholder="First Name">
+                    <input type="text" id="lastname" name="lastname" placeholder="Last Name"></div>
+                    <div><input type="file" name="img" id="img" class="inputfile">
+                    <input type="submit" name="submit" class="button" value="Submit"><div>
                 </form>
             </div>
         </div>

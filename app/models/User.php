@@ -91,6 +91,11 @@ class User {
         }               
 
     }
+    
+    public function changeProfilePhoto($pic) {
+        $sql = "UPDATE users SET img='$pic' WHERE username='$this->username'";
+        $result = $this->pdo->query($sql);
+    }
 
     public function getUsername() {
         return $this->username;

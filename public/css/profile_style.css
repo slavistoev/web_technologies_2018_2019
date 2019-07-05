@@ -128,8 +128,6 @@ table {
   width: 80%;
 }
 
-
-
 .pixel {
   margin-left: 5%;
   overflow: hidden;
@@ -156,27 +154,28 @@ table {
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    color: white;
 }
 
-input  {
+input[type=text], input[type="password"] {
   outline: 0;
   background: #f2f2f2;
   width: 20%;
   border: 0;
-  margin: 15px 0 15px;
+  margin: 10px 0 10px;
   padding: 15px;
 }
 
 .button {
-  font-size: 100%;
+  font-size: 80%;
   font-weight: bold;
+  border: none;
   background: #4E9CAF;
-  padding: 1.5%;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 0.5%;
   text-align: center;
-  width: 16%;
+  width: 10%;
   color: white;
+  cursor: pointer;
 }
 
 

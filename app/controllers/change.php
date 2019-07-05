@@ -52,7 +52,7 @@ class Change extends Controller {
                     $target = $target . basename($_FILES['img']['name']);
                     $pic = ($_FILES['img']['name']);
                 } else {
-                    $pic = $target . $r['img'];
+                    $pic = $r['img'];
                 }
 
                 $sql = "UPDATE grid SET link='$link', text='$text', img='$pic' WHERE id='$id'";

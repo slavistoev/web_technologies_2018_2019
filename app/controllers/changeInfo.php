@@ -34,7 +34,24 @@ class ChangeInfo extends Controller {
                 $lastName = $_POST['lastname'];
                 $user->changeLastName($lastName);
             }
-            $this->view('profile_view');
+            if (!empty($_FILES['img']['name'])) {
+                $target = "images/profilePics/";
+                $target = $target . basename($_FILES['img']['name']);
+                $pic = ($_FILES['img']['name']);
+                $user->changeProfilePhoto($pic);
+
+                if(move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
+                    echo "The file has been uploaded.";
+                } else {
+                    echo "The file has not been uploaded.";
+                }
+            }
+
+        
+            
+        $this->view('profile_view');
+
+        $db->closeConnection($pdo);
         }
     }
 }

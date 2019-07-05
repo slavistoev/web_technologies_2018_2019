@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2019 at 02:36 AM
+-- Generation Time: Jul 05, 2019 at 02:08 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -42,11 +42,11 @@ CREATE TABLE `grid` (
 --
 
 INSERT INTO `grid` (`id`, `empty`, `img`, `link`, `owner`, `text`) VALUES
-(1, 0, 'fmi.png', 'https://www.fmi.uni-sofia.bg/bg', NULL, 'FMI is The BEST'),
-(2, 1, NULL, NULL, NULL, NULL),
-(3, 1, NULL, NULL, NULL, NULL),
-(4, 1, NULL, NULL, NULL, ''),
-(5, 1, NULL, NULL, NULL, ''),
+(1, 0, 'download.jpg', 'https://www.fmi.uni-sofia.bg/', 'Admin', 'FMI is the best'),
+(2, 1, 'NULL', 'NULL', 'NULL', 'NULL'),
+(3, 1, 'NULL', 'NULL', 'NULL', 'NULL'),
+(4, 1, 'NULL', 'NULL', 'NULL', 'NULL'),
+(5, 1, 'NULL', 'NULL', 'NULL', 'NULL'),
 (6, 1, NULL, NULL, NULL, ''),
 (7, 1, NULL, NULL, NULL, ''),
 (8, 1, NULL, '', NULL, ''),
@@ -78,15 +78,18 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `pass` varchar(255) NOT NULL
+  `img` varchar(255) DEFAULT NULL,
+  `pass` varchar(255) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `pass`) VALUES
-(1, 'Admin', 'admin@abv.bg', '$2y$10$hPkaZ.lU9opIoIMpnLARdegAA8/iOu5dDiHKtmW6V3j1pptMr0Jji');
+INSERT INTO `users` (`id`, `username`, `email`, `img`, `pass`, `first_name`, `last_name`) VALUES
+(1, 'Admin', 'admin@abv.bg', 'admin.png', '$2y$10$e1pAq2GHrEeXhxgs34Djg.894HqFDFtwnw7CguAaKL1I6ofDPasx6', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -120,7 +123,7 @@ ALTER TABLE `grid`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
