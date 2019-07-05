@@ -20,25 +20,30 @@ class Change extends Controller {
             $pixel = new Pixel($id);
             $result = $pixel->selectPixel();
             $error = '';
+
+            
             if ($result['success']) {
                 if($_POST) {   
+                    //directory for photos
+                    $target = "images/";
+                    $target = $target . basename($_FILES['img']['name']);
                     if (!empty($_POST['link'])) {
                         $link = $_POST['link'];
                     } else {
                         $link = $pixel->getLink();
+                        $error = "Link is required.";
                     }
                     if (!empty($_POST['text'])) {
                         $text = $_POST['text'];
                     } else {
                         $text = $pixel->getText();
+                        $error = "Text is required.";
                     }
                     if (!empty($_FILES['img']['name'])) {
-                        //directory for photos
-                        $target = "images/";
-                        $target = $target . basename($_FILES['img']['name']);
                         $pic = ($_FILES['img']['name']);
                     } else {
                         $pic = $pixel->getImg();
+                        $error = "Image is required.";
                     }
     
                     if(move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
@@ -57,8 +62,9 @@ class Change extends Controller {
             } else {
                 $error = $result['error'];
             }
-
-            echo '<ul class="errors"> ' . $error . '</ul>';
+            if (!empty($error)) {
+                echo '<ul class="errors"> ' . $error . '</ul>';
+            }
         }
     }
 }
