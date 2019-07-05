@@ -120,9 +120,37 @@ a.button3:hover{
 
 
 /* for editing pixels */
+#pixelChange {
+  
+  overflow-y: scroll;
+}
 
-
+.pixel {
+  margin-left: 5%;
+  overflow: hidden;
+}
 .cell img {
-  width: 10%;
+  width: 20%;
   height: auto;
+
+}
+
+.text a {
+  text-decoration: none;
+  color: white;
+}
+
+.button {
+    display: block;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 42%;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
 }

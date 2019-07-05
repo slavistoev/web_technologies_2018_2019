@@ -84,15 +84,16 @@
                     } 
                 ?>
             </div>  
-            <div class="tabPanel">
+            <div class="tabPanel" id="pixelChange">
                 <?php
                     $sql = "SELECT * FROM grid WHERE owner='$username'";
                     $q = $pdo->query($sql);
                     $q->setFetchMode(PDO::FETCH_ASSOC);
+                    
                     while ($r = $q->fetch()) {
-                        echo '<div class="whole"><div class="image"> <a href="' . $r['link'] . '" class="cell" target="_blank"><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a></div>';
-                        echo '<div class="text"><a href="#" id="' . $r['id'] . '" onClick="reply_click_to_delete(this.id)">Delete</a></div>';
-                        echo '<div class="text"><a href="#" id="' . $r['id'] . '" onClick="reply_click_to_change(this.id)">Change</a></div></div>';
+                        echo '<div class="pixel"><div class="image"> <a href="' . $r['link'] . '" class="cell" target="_blank"><img src="../public/images/' . $r['img'] . '" title="' . $r['text'] . '"/>'. '</a></div>';
+                        echo '<div class="text"><a href="#" class="button" id="' . $r['id'] . '" onClick="reply_click_to_delete(this.id)">Delete</a></div>';
+                        echo '<div class="text"><a href="#" class="button" id="' . $r['id'] . '" onClick="reply_click_to_change(this.id)">Change</a></div></div>';
                     }
                 ?>
             </div>  
