@@ -15,7 +15,7 @@ class Register extends Controller {
             
             $username_regex = '/[\w]{6,25}/i';
             $password_regex = '~(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])^[\w]{6,30}$~';
-            $email_regex = '/(?![[:alnum:]]|@|-|_|\.)./';
+            $email_regex = '/[a-zA-Z0-9_\-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/';
 
             $error = '';
             if (!preg_match($username_regex, $username)) {

@@ -107,7 +107,7 @@
                     <legend>Change password:</legend>
                     <div><input type="password" id="passwordOld" name="passwordOld" placeholder="Old password">
                     <input type="password" id="passwordNew" name="passwordNew" placeholder="New password">
-                    <input type="password" id="passwordNewS" name="passwordNewS" placeholder="Repeat new Password"></div>
+                    <input type="password" id="passwordNewS" name="passwordNewS" placeholder="Repeat new password"></div>
                     <div><input type="submit" name="submit" class="button" value="Submit"></div>
                 </form>
 
