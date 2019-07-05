@@ -13,16 +13,7 @@ class Add extends Controller {
         } else {
             $user = $_SESSION["username"];
             $this->view("add_view");
-
-            try {
-                $db = new Database;
-                $pdo = $db->connect();
-            } catch (Exception $e) {
-                echo $e->getTraceAsString();
-            }
-
-
-
+            $this->model('Pixel');
 
             if($_POST) {
                 //directory for photos
@@ -33,33 +24,31 @@ class Add extends Controller {
                 $link = $_POST['link'];
                 $text = $_POST['text'];
                 $id = $_GET['id'];
-                $empty = 1;
 
-                $sql = "SELECT * FROM grid WHERE id='$id'";
-                $row = $pdo->query($sql);
-
-                $row->setFetchMode(PDO::FETCH_ASSOC);
-                $r = $row->fetch();
-
-
-                if ($r['empty'] == 0) {
-                    echo "pixel is taken";
-                }
-                else {
-
-                    $sql = "UPDATE grid SET empty=0, link='$link', text='$text', owner='$user', img='$pic' WHERE id='$id'";
-                    $pdo->query($sql);
-
-                    if(move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
-                        echo "The file has been uploaded.";
-                    } else {
-                        echo "The file has not been uploaded.";
+                $pixel = new Pixel($id);
+                $result = $pixel->selectPixel();
+                if ($result['success']) {
+                    if (!$pixel->isEmpty()) {
+                        echo "pixel is taken";
                     }
-                }
-                
-                header("Location: ./home_view");
+                    else {
+                        if(move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
+                            echo "The file has been uploaded.";
 
-                $db->closeConnection($pdo);
+                            $result = $pixel->updatePixel($pic, $link, $user, $text);
+                            if ($result['success']) {
+                                header("Location: ./home_view");
+                            } else {
+                                echo result['error'];
+                            }
+                        } else {
+                            echo "The file has not been uploaded.";
+                        }
+                    }
+
+                } else {
+                    echo result['error'];
+                }            
             }
         }
     }
