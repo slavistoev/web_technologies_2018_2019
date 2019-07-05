@@ -55,20 +55,23 @@ class User {
 
     }
 
-    public function changePass($oldPass, $newPass) {
+    public function changePass($newPass) {
         $sql = "SELECT * FROM users WHERE username = '$this->username'";
         $query = $this->pdo->query($sql);
 
         $user = $query->fetch(PDO::FETCH_ASSOC);
         if($user) {
             if(password_verify($this->password, $user['pass'])) {
-                
-                $this->password = $newPass;
-                $passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
+                $passwordHash = password_hash($newPass, PASSWORD_DEFAULT);
+                $this->password = $passwordHash;
 
                 $sql = "UPDATE users SET pass='$passwordHash' WHERE username='$this->username'";
-                $result = $this->pdo->query($sql);
-                
+                $query = $this->pdo->query($sql);
+                if ($query) {
+                    return array("success" => true);
+                } else {
+                    return array("success" => false, "error" => "Could not change password");
+                }
             } else {
                 return array("success" => false, "error" => "Wrong old password.");
             }

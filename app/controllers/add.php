@@ -27,9 +27,10 @@ class Add extends Controller {
 
                 $pixel = new Pixel($id);
                 $result = $pixel->selectPixel();
+                $error = '';
                 if ($result['success']) {
                     if (!$pixel->isEmpty()) {
-                        echo "pixel is taken";
+                        $msg = "pixel is taken";
                     }
                     else {
                         if(move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
@@ -39,16 +40,18 @@ class Add extends Controller {
                             if ($result['success']) {
                                 header("Location: ./home_view");
                             } else {
-                                echo result['error'];
+                                $error = result['error'];
                             }
                         } else {
-                            echo "The file has not been uploaded.";
+                            $error = "The file has not been uploaded.";
                         }
                     }
 
                 } else {
-                    echo result['error'];
-                }            
+                    $error = result['error'];
+                }  
+                
+                echo $error;
             }
         }
     }

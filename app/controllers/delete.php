@@ -11,27 +11,25 @@ class Delete extends Controller {
             echo 'window.location.href="./login";';
             echo "</script>";
         } else {
-            $user = $_SESSION["username"];
-
-            try {
-                $dir = dirname(dirname(__FILE__));
-                include_once $dir . '\models\database.php';
-                $vars = $dir . '\include\vars.php';
-            
-                $db = new Database;
-                $pdo = $db->connect($vars);
-            } catch (Exception $e) {
-                echo $e->getTraceAsString();
-            }
-
-            $id = $_GET['id'];
-            
-            $sql = "UPDATE grid SET empty=1, link='NULL', text='NULL', owner='NULL', img='NULL' WHERE id='$id'";
-            $pdo->query($sql);
-            
+            $this->model('Pixel');
             $this->view("profile_view");
 
-            $db->closeConnection($pdo);
+            $id = $_GET['id'];
+            $pixel = new Pixel($id);
+            $result = $pixel->selectPixel();
+            $msg = '';
+            if ($result['success']) {
+                $result = $pixel->deletePixel();
+                if ($result['success']) {
+                    $msg = "Pixel deleted successfully";
+                } else {
+                    $msg = result['error'];
+                }
+            } else {
+                $msg = $result['error'];
+            }
+
+            echo $msg;
         }
     }
 }

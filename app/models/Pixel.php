@@ -51,6 +51,18 @@ class Pixel {
         return $this->empty;
     }
 
+    public function getLink() {
+        return $this->link;
+    }
+
+    public function getImg() {
+        return $this->img;
+    }
+
+    public function getText() {
+        return $this->text;
+    }
+
     public function updatePixel($img, $link, $owner, $text) {
         $this->img = $img;
         $this->link = $link;
@@ -83,6 +95,17 @@ class Pixel {
         }
 
         $db->closeConnection($pdo);
+    }
+
+    public function deletePixel() {
+        $sql = "UPDATE grid SET empty=1, link='NULL', text='NULL', owner='NULL', img='NULL' WHERE id='$this->id'";
+        $query = $this->pdo->query($sql);
+
+        if ($query) {
+            return array("success" => true);
+        } else {
+            return array("success" => false, "error" => "Unable to delete pixel.");
+        }
     }
 
     function __destruct() {
