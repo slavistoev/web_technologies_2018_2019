@@ -1,8 +1,6 @@
 <?php
 
-require_once "database.php";
-
-class GridElement extends Database {
+class Pixel {
     private $id;
     private $empty;
     private $img;
