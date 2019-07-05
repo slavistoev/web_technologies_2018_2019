@@ -14,6 +14,7 @@
     width: 400px;
     padding: 4% 0 0;
     margin: auto;
+    margin-top: -2%;
 }
 
 
@@ -93,7 +94,7 @@ legend {
   }
 
 
-  body .reg {
+  .reg {
     background: #4095c6; /* fallback for old browsers */
     background: -webkit-linear-gradient(right, #4095c6, #8cc9ec);
     background: -moz-linear-gradient(right, #4095c6, #8cc9ec);
@@ -108,7 +109,7 @@ legend {
     background-color: #FFBABA;
     display: block;
     text-align: center;
-    margin-top: -5%;
+    margin-top: -6%;
     border: 1px solid;
     padding: 15px 10px 15px 50px;
   }
