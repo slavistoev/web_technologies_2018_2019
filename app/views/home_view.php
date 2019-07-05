@@ -65,7 +65,7 @@ function checkIfPictureExists($img) {
                 while ($pixel = $result['pixels']->fetch()) {
                     if ($pixel['empty'] == 0) {
                         if (checkIfPictureExists($pixel['img']))  { 
-                            echo '<a href="' . $pixel['link'] . '" class="cell" ><img src="../public/images/' . $pixel['img'] . '" title="' . $pixel['text'] . '"/>'. '</a>';
+                            echo '<a href="' . $pixel['link'] . '" class="cell" target="_blank"><img src="../public/images/' . $pixel['img'] . '" title="' . $pixel['text'] . '"/>'. '</a>';
                         } else {
                             echo '<a href="' . $pixel['link'] . '" class="cell-empty" ><img src="../public/images/imagenotfound.png" title="' . $pixel['text'] . '"/>'. '</a>';
                         }
