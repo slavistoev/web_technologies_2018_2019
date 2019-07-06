@@ -27,8 +27,9 @@ function checkIfPictureExists($img) {
 
     <style>
         <?php 
-           $path = $_SERVER['DOCUMENT_ROOT'];
-           $path .= "/web_technologies_2018_2019/public/css/style.css";
+           $path = dirname(dirname(dirname(__FILE__)));
+
+           $path .= "/public/css/style.css";
            include($path);
         ?>
     </style>
