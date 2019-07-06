@@ -40,8 +40,8 @@ function checkIfPictureExists($img) {
         
         <nav>
         <?php
-        $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= "/web_technologies_2018_2019/app//models/Pixel.php";
+        $path = dirname(dirname(dirname(__FILE__)));
+        $path .= "/app/models/Pixel.php";
         include($path);
         if ($_SESSION) {
             if($_SESSION["username"]) {

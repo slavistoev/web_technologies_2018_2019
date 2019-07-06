@@ -23,14 +23,16 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 
+$path = dirname(dirname(dirname(__FILE__)));
+
 class Init {
     private $SITE_FNs = "61982, 62001";
     private $SITE_CREATORs = "Габриела Геренска, Слави Стоев";
     private $SITE_ADMIN_EMAIL = "gabolinno@gmail.com, slavi.stoev97@gmial.com";
     private $SITE_INFO = "This project was created during 2019, on Web Technologies, Sofia University, FMI, lead by: Milen Petrov";
 
-    private $SITE_URL = "http://localhost/web_technologies_2018_2019/public/";
-    private $ROOT_FOLDER = "C:\xampp\htdocs\web_technologies_2018_2019";
+    //private $SITE_URL = "http://localhost/web_technologies_2018_2019/public/";
+    //private $ROOT_FOLDER = "C:\xampp\htdocs\web_technologies_2018_2019";
     private $DB_USER = "root";
     private $DB_PASS = "";
     private $DB_NAME = "onemilionpixels";
