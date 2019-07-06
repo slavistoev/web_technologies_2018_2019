@@ -45,8 +45,7 @@ p {
     margin-left: 5%;
     margin-right: 5%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   }
 
   .cell, .cell-empty {
@@ -75,9 +74,9 @@ p {
 /* Zoom every pixel on hover */
   .cell:hover, .cell-empty:hover {
     background-color: black;
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
+    -ms-transform: scale(4.0); /* IE 9 */
+    -webkit-transform: scale(4.0); /* Safari 3-8 */
+    transform: scale(4.0); 
   }
 
   .greeting {
